@@ -1,31 +1,40 @@
-﻿using UnityEngine;
-
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MazeGame
 {
-    public sealed class GoodBonus : InteractiveObject, IFly
+    public sealed class GoodBonus : InteractiveObject, IFlay, IFlicker
     {
+        public int Point;
         private Material _material;
-        private float _flyLenght;
-        private float _minRange = 1.0f;
-        private float _maxRange = 5.0f;
+        private float _lengthFlay;
+        private DisplayBonuses _displayBonuses;
 
         private void Awake()
         {
             _material = GetComponent<Renderer>().material;
-            _flyLenght = Random.Range(_minRange, _maxRange);
+            _lengthFlay = Random.Range(1.0f, 5.0f);
+            _displayBonuses = new DisplayBonuses();
+        }
+        
+        protected override void Interaction()
+        {
+            _displayBonuses.Display(5);
+            // Add bonus
         }
 
-        protected override void Interaction ()
+        public void Flay()
         {
-
-        }
-
-        public void Fly()
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x,
-                Mathf.PingPong(Time.time, _flyLenght),
+            transform.localPosition = new Vector3(transform.localPosition.x, 
+                Mathf.PingPong(Time.time, _lengthFlay),
                 transform.localPosition.z);
+        }
+
+        public void Flicker()
+        {
+            _material.color = new Color(_material.color.r, _material.color.g, _material.color.b,
+                Mathf.PingPong(Time.time, 1.0f));
         }
     }
 }

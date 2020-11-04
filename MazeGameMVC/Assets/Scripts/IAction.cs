@@ -1,12 +1,7 @@
-﻿using UnityEngine;
-
-
-namespace MazeGame
+﻿namespace MazeGame
 {
-
     public interface IAction
     {
         void Action();
     }
-
 }

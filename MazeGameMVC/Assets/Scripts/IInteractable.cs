@@ -1,12 +1,7 @@
-﻿using UnityEngine;
-
-
-namespace MazeGame
+﻿namespace MazeGame
 {
-
-    public interface IInteractable : IAction, IInitialization
+    public interface IInteractable : IInitialization
     {
         bool IsInteractable { get; }
     }
-
 }

@@ -1,9 +1,5 @@
-﻿using UnityEngine;
-
-
-namespace MazeGame
+﻿namespace MazeGame
 {
-
     public interface IRotation
     {
         void Rotation();
