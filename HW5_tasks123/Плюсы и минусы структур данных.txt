@@ -1,0 +1,68 @@
+Задание 1.
+Расписать в текстовом документе плюсы и минусы изученных структур данных
+и расписать примеры в которых нужно будет использовать тот или иной контейнер
+
+
+https://metanit.com/sharp/tutorial/4.2.php 
+смысла копипастить нет, но здесь найден исчерпывающий объем данных по необобщенным коллекциям
+и их интерфейсам. Без примеров, но понятно зачем они применяются.
+
+Здесь https://metanit.com/sharp/tutorial/4.3.php
+я нашла информацию о колекциях и применении ArrayList
+
+https://metanit.com/sharp/tutorial/4.5.php
+Список List<T>, относящийся уже к обобщенным коллекциям.
+
+По теме урока проще открыть главу 9 и проштудировать информацию =)
+
+
+Задание 2. Реализовать метод расширения для поиска количества символов в строке
+
+Снова подглядела с Метанита.
+
+namespace HomeWork
+{
+    public static class CharCounting
+    {
+        public static int CharCount(this string str, char c)
+        {
+            int counter = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == c)
+                    counter++;
+            }
+            return counter;
+        }
+
+
+    }
+}
+
+using UnityEngine;
+
+
+
+namespace HomeWork
+{
+    public class ExtensionMethod : MonoBehaviour
+    {
+
+        public class Program
+        {
+            public static void Main(string[] args)
+            {
+                string s = "Hello world";
+                char o = 'o';
+                int i = s.CharCount(o);
+                Debug.Log("i");
+
+
+            }
+        }
+    }
+
+}
+
+Немножко исправила под Unity.
+
